@@ -1,22 +1,31 @@
 :root {
-    --bg-color: #1b1515;
-    --bg-darker: #14171f83;
-    --text-primary: #f8fafc;
-    --text-secondary: #ffffff;
+    --bg-color: #fcfbf8;
+    --bg-darker: #f3f4f6;
+    --text-primary: #1f2937;
+    --text-secondary: #4b5563;
     --accent-primary: #3b82f6;
     --accent-secondary: #8b5cf6;
-    --glass-bg: rgba(30, 41, 59, 0.7);
-    --glass-border: rgba(94, 49, 49, 0.1);
+    --glass-bg: rgba(255, 255, 255, 0.75);
+    --glass-border: rgba(0, 0, 0, 0.08);
+}
+
+html, body {
+    max-width: 100vw;
+    overflow-x: hidden;
 }
 
 body {
     font-family: 'Inter', sans-serif;
     background-color: var(--bg-color);
     color: var(--text-primary);
-    overflow-x: hidden;
 }
 
 /* Background elements */
+.hero-section {
+    position: relative;
+    overflow: hidden;
+}
+
 .bg-darker {
     background-color: var(--bg-darker);
 }
@@ -123,20 +132,20 @@ body {
 
 /* Navbar */
 .custom-navbar {
-    background: rgba(42, 48, 59, 0.8);
+    background: rgba(252, 251, 248, 0.85);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--glass-border);
     transition: all 0.3s ease;
 }
 
-.custom-navbar .nav-link {
-    color: var(--text-secondary);
-    font-weight: 500;
+.custom-navbar .nav-link:not(.btn) {
+    color: #000000;
+    font-weight: 600;
     transition: color 0.3s ease;
 }
 
-.custom-navbar .nav-link:hover {
-    color: var(--text-primary);
+.custom-navbar .nav-link:not(.btn):hover {
+    color: var(--accent-primary);
 }
 
 /* Glassmorphism Cards */
