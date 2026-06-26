@@ -1,4 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // ----- Theme Toggle -----
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = themeToggle.querySelector('i');
+    const body = document.body;
+
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    body.setAttribute('data-theme', savedTheme);
+    body.setAttribute('data-bs-theme', savedTheme);
+    themeIcon.className = savedTheme === 'dark' ? 'bi bi-sun-fill' : 'bi bi-moon-fill';
+
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = body.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        body.setAttribute('data-theme', newTheme);
+        body.setAttribute('data-bs-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        themeIcon.className = newTheme === 'dark' ? 'bi bi-sun-fill' : 'bi bi-moon-fill';
+    });
+
     // Reveal elements on scroll
     const reveals = document.querySelectorAll('.reveal');
 

@@ -7,6 +7,26 @@
     --accent-secondary: #8b5cf6;
     --glass-bg: rgba(255, 255, 255, 0.75);
     --glass-border: rgba(0, 0, 0, 0.08);
+    --navbar-bg: rgba(252, 251, 248, 0.85);
+    --navbar-link: #000000;
+    --badge-bg: #e9ecef;
+    --footer-text: #6c757d;
+}
+
+/* Dark Mode — Dark & Grey aesthetic */
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --bg-darker: #1a1a1a;
+    --text-primary: #e5e7eb;
+    --text-secondary: #9ca3af;
+    --accent-primary: #60a5fa;
+    --accent-secondary: #a78bfa;
+    --glass-bg: rgba(30, 30, 30, 0.85);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --navbar-bg: rgba(18, 18, 18, 0.92);
+    --navbar-link: #e5e7eb;
+    --badge-bg: #374151;
+    --footer-text: #9ca3af;
 }
 
 html, body {
@@ -132,14 +152,14 @@ body {
 
 /* Navbar */
 .custom-navbar {
-    background: rgba(252, 251, 248, 0.85);
+    background: var(--navbar-bg);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--glass-border);
     transition: all 0.3s ease;
 }
 
 .custom-navbar .nav-link:not(.btn) {
-    color: #000000;
+    color: var(--navbar-link);
     font-weight: 600;
     transition: color 0.3s ease;
 }
@@ -239,4 +259,66 @@ body {
 
 .delay-1 {
     transition-delay: 0.2s;
+}
+
+/* Dark mode overrides for hardcoded classes */
+[data-theme="dark"] .text-dark {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .bg-secondary-subtle {
+    background-color: var(--badge-bg) !important;
+}
+
+[data-theme="dark"] .glass-card:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="dark"] footer.text-muted,
+[data-theme="dark"] .text-muted {
+    color: var(--text-secondary) !important;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+    background: transparent;
+    border: 2px solid var(--accent-primary);
+    color: var(--navbar-link);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+    padding: 0;
+    margin-left: 0.5rem;
+}
+
+.theme-toggle:hover {
+    background: var(--accent-primary);
+    color: white;
+    transform: rotate(30deg);
+}
+
+[data-theme="dark"] .theme-toggle {
+    border-color: var(--accent-primary);
+    color: #fbbf24;
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+    background: var(--accent-primary);
+    color: white;
+}
+
+/* Fix hero text color in dark mode */
+[data-theme="dark"] .hero-text {
+    color: var(--text-secondary) !important;
+}
+
+/* Fix timeline badge */
+[data-theme="dark"] .badge {
+    color: var(--text-primary) !important;
 }
